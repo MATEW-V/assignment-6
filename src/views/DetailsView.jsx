@@ -20,9 +20,6 @@ function DetailMovieView() {
 
   return (
     <div className={style7.appcontainer}>
-      <div className={style7.header}>
-        <Header />
-      </div>
       <div className={style7.moviedetail}>
         <h1 className={style7.movietitle}>{movie.original_title}</h1>
         <p className={style7.movieoverview}>{movie.overview}</p>

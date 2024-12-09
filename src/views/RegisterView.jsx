@@ -3,6 +3,9 @@ import style10 from "./RegisterView.module.css";
 function RegisterView() {
   return (
     <div className={style10.body}>
+      <div className={style10.genreselect}>
+        
+      </div>
       <div className={style10.logincontainer}>
         <div className={style10.formcontainer}>
           <h2>Create an Account</h2>

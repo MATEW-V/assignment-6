@@ -11,8 +11,9 @@
 
 .logincontainer {
     position: relative;
-    justify-self: center;
-    top: 180px;
+    justify-self: right;
+    top: 100px;
+    margin-right: 30px;
     width: 100%;
     max-width: 800px;
     padding: 20px;

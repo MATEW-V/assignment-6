@@ -56,9 +56,6 @@ function GenreLogin() {
 
   return (
     <div className={style6.appcontainer}>
-      <div className={style6.header}>
-        <Header />
-      </div>
       <div className={style6.loginfeat}>
         <div className={style6.genrelist}>
           <GenreView genresList={genres} onGenreClick={handleGenreClick} />

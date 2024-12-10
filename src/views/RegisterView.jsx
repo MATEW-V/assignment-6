@@ -25,34 +25,34 @@ function RegisterView() {
       alert("passwords do not match");
     }
   }
-
+  
   return (
     <div className={style10.body}>
       <div className={style10.genrecontainer}>
         <div className={style10.genreselect}>
           <h2>Select Genres</h2>
-          <input type="checkbox" id="g1" name="genre" value="Bike" />
-          <label for="g1"> I have a bike</label><br />
-          <input type="checkbox" id="g2" name="genre" value="Car" />
-          <label for="g2"> I have a car</label><br />
-          <input type="checkbox" id="g3" name="genre" value="Boat" />
-          <label for="g3"> I have a boat</label><br />
-          <input type="checkbox" id="g4" name="genre" value="Bike" />
-          <label for="g4"> I have a bike</label><br />
-          <input type="checkbox" id="g5" name="genre" value="Car" />
-          <label for="g5"> I have a car</label><br />
-          <input type="checkbox" id="g6" name="genre" value="Boat" />
-          <label for="g6"> I have a boat</label><br />
-          <input type="checkbox" id="g7" name="genre" value="Bike" />
-          <label for="g7"> I have a bike</label><br />
-          <input type="checkbox" id="g8" name="genre" value="Car" />
-          <label for="g8"> I have a car</label><br />
-          <input type="checkbox" id="g9" name="genre" value="Boat" />
-          <label for="g9"> I have a boat</label><br />
-          <input type="checkbox" id="g10" name="genre" value="Bike" />
-          <label for="g10"> I have a bike</label><br />
-          <input type="checkbox" id="g11" name="genre" value="Car" />
-          <label for="g11"> I have a car</label><br />
+          <input type="checkbox" id="28" name="Action" value="Bike" />
+          <label for="28">Action</label><br />
+          <input type="checkbox" id="16" name="Animation" value="Car" />
+          <label for="16">Animation</label><br />
+          <input type="checkbox" id="35" name="Comedy" value="Boat" />
+          <label for="35">Comedy</label><br />
+          <input type="checkbox" id="10751" name="Family" value="Bike" />
+          <label for="10751">Family</label><br />
+          <input type="checkbox" id="36" name="History" value="Car" />
+          <label for="36">History</label><br />
+          <input type="checkbox" id="27" name="Horror" value="Boat" />
+          <label for="g6">Horror</label><br />
+          <input type="checkbox" id="10402" name="Music" value="Bike" />
+          <label for="10402">Music</label><br />
+          <input type="checkbox" id="878" name="Science Fiction" value="Car" />
+          <label for="878">Science Fiction</label><br />
+          <input type="checkbox" id="53" name="Thriller" value="Boat" />
+          <label for="53">Thriller</label><br />
+          <input type="checkbox" id="10752" name="War" value="Bike" />
+          <label for="10752">War</label><br />
+          <input type="checkbox" id="37" name="Western" value="Car" />
+          <label for="37">Western</label><br />
         </div>
       </div>
       <div className={style10.logincontainer}>

@@ -15,7 +15,7 @@
     top: 100px;
     margin-left: 30px;
     width: 100%;
-    max-width: 400px;
+    max-width: 300px;
     background-color: rgb(39, 39, 39);
     border-radius: 8px;
     padding: 20px;
@@ -36,7 +36,13 @@
     text-align: center;
 }
 
-.genreselect h2,
+.genreselect h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #c7c6c6;
+    text-align: center;
+    padding-right: 30px;
+}
 .formcontainer h2 {
     font-size: 2em;
     margin-bottom: 20px;

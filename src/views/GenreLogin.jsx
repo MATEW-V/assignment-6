@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Header from "./components/Header.jsx";
+import { useStoreContext } from "../context";
 import Footer from "./components/Footer.jsx";
 import style6 from "./GenreLogin.module.css";
 import GenreView from "./components/GenreView.jsx";
@@ -11,6 +11,7 @@ function GenreLogin() {
   const [page, setPage] = useState(1);
   const [selectedGenreId, setSelectedGenreId] = useState(28);
   const navigate = useNavigate();
+  const { email, fname, lname, password, verifpass } = useStoreContext();
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -57,6 +58,7 @@ function GenreLogin() {
   return (
     <div className={style6.appcontainer}>
       <div className={style6.loginfeat}>
+        <div>welcome :{email} firstname:{fname} lastname:{lname}password:{password}</div>
         <div className={style6.genrelist}>
           <GenreView genresList={genres} onGenreClick={handleGenreClick} />
           <div className={style6.spacer}>
@@ -67,13 +69,13 @@ function GenreLogin() {
                 if (page > 1) {
                   setPage(page - 1), getMoviesByPage(page - 1)
                 }
-              }}>Previous Page<br/></a>
+              }}>Previous Page<br /></a>
               <a onClick={() => {
                 if (page < 50) {
                   setPage(page + 1), getMoviesByPage(page + 1)
                 }
               }}>Next Page</a></p>
-              <p>Page {page}<br/></p>
+            <p>Page {page}<br /></p>
           </div>
         </div>
         <div className={style6.genredisp}>

@@ -5,8 +5,7 @@ import style9 from "./MoviesView.module.css";
 
 function MoviesView() {
   const navigate = useNavigate();
-  //const { email } = useStoreContext();
-
+  const { email } = useStoreContext();
   function logout() {
     navigate("/");
   }

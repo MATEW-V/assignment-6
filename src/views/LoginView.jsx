@@ -4,19 +4,19 @@ import { useNavigate } from 'react-router-dom';
 import { useStoreContext } from '../context';  
 
 function LoginView() {
-  const { email: contextEmail, password: contextPassword } = useStoreContext();  
-  const [email, setEmail] = useState(''); 
-  const [password, setPassword] = useState('');  
+  const { setEmail, email, setPassword, password } = useStoreContext();  
+  const [uemail, setUEmail] = useState(''); 
+  const [upassword, setUPassword] = useState('');  
   const navigate = useNavigate();
 
   function login(event) {
     event.preventDefault();
 
-    
-    if (email === contextEmail && password === contextPassword) {
+    if (email == uemail && password == upassword) {
       navigate('/movies/genre');
     } else {
       alert("Invalid email or password!");
+      console.log(email,password,uemail,upassword);
     }
   }
 
@@ -31,8 +31,8 @@ function LoginView() {
               type="email"
               id="email"
               name="email"
-              value={email}  
-              onChange={(event) => setEmail(event.target.value)} 
+              value={uemail}  
+              onChange={(event) => setUEmail(event.target.value)} 
               required
             />
             <label htmlFor="password">Password</label>
@@ -40,8 +40,8 @@ function LoginView() {
               type="password"
               id="password"
               name="password"
-              value={password} 
-              onChange={(event) => setPassword(event.target.value)} 
+              value={upassword} 
+              onChange={(event) => setUPassword(event.target.value)} 
               required
             />
             <button type="submit" className={style8.loginbutton}>Login</button>

@@ -1,11 +1,9 @@
 import { Outlet, useNavigate } from "react-router-dom";
-import { useStoreContext } from "../context";
 import { Link } from "react-router-dom";
 import style9 from "./MoviesView.module.css";
 
 function MoviesView() {
   const navigate = useNavigate();
-  const { email } = useStoreContext();
   function logout() {
     navigate("/");
   }

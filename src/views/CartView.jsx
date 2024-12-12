@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import style12 from "./Cartview.module.css";
 
 function CartView() {
-  const { cart, setCart } = useStoreContext();
+  const { cart, setCart, fname } = useStoreContext();
 
   return (
     <div className={style12.appcontainer}>
@@ -35,7 +35,7 @@ function CartView() {
             </div>
         </div>
     <div className={style12.cartview}>
-      <h1>Shopping Cart</h1>
+      <h1>{fname}'s Shopping Cart</h1>
       <div className={style12.cartitems}>
         {
           cart.entrySeq().map(([key, value]) => {

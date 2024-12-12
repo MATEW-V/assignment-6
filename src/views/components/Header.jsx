@@ -2,6 +2,9 @@ import style3 from './Header.module.css';
 import { Link } from "react-router-dom";
 
 function Header() {
+    function alertset() {
+        alert("Login to open Settings");
+    }
     return (
         <div className={style3.nbar}>
             <div className={style3.icon}>
@@ -10,8 +13,8 @@ function Header() {
             <div className={style3.menu}>
                 <ul className={style3.navigation}>
                     <li><a><Link to={`/`}>HOME</Link></a></li>
-                    <li><a href="#">ABOUT</a></li>
-                    <li><a href="#">SETTINGS</a></li>
+                    <li><a>ABOUT</a></li>
+                    <li><a onClick={() => alertset()}>SETTINGS</a></li>
                     <li>
                         <div className={style3.search}>
                             <div className={style3.searchbox}>

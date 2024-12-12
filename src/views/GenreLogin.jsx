@@ -10,7 +10,7 @@ function GenreLogin() {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const [selectedGenreId, setSelectedGenreId] = useState(28);
-  const { cart, fname, addToCart } = useStoreContext();  // Destructure addToCart from context
+  const { cart, fname, addToCart, genres } = useStoreContext();  // Destructure addToCart from context
 
   // Function to handle adding a movie to the cart
   const cartAdd = (movie) => {
@@ -19,7 +19,6 @@ function GenreLogin() {
       alert("This movie is already in your cart.");
     } else {
       addToCart(movie);  // Add movie object to the cart
-      alert("Added to Cart");
     }
   };
 
@@ -46,19 +45,7 @@ function GenreLogin() {
   }
 
   // Define movie genres
-  const genres = [
-    { genre: "Action", id: 28 },
-    { genre: "Animation", id: 16 },
-    { genre: "Comedy", id: 35 },
-    { genre: "Family", id: 10751 },
-    { genre: "History", id: 36 },
-    { genre: "Horror", id: 27 },
-    { genre: "Music", id: 10402 },
-    { genre: "Science Fiction", id: 878 },
-    { genre: "Thriller", id: 53 },
-    { genre: "War", id: 10752 },
-    { genre: "Western", id: 37 },
-  ];
+  
 
   const handleGenreClick = (genreId) => {
     setSelectedGenreId(genreId);
@@ -68,7 +55,7 @@ function GenreLogin() {
     <div className={style6.appcontainer}>
       <div className={style6.loginfeat}>
         <div className={style6.welcome}>
-          Welcome {fname}! We hope you find what you are looking for.
+          Welcome {fname}! We hope you find what you are looking for. {genres}
         </div>
         <div className={style6.genrelist}>
           <GenreView genresList={genres} onGenreClick={handleGenreClick} />
@@ -117,7 +104,7 @@ function GenreLogin() {
                   onClick={() => cartAdd(movie)}
                   className={style6.buybut}
                 >
-                  {cart.has(movie.id) ? "In Cart" : "Buy"} {/* Toggle text based on cart status */}
+                  {cart.has(movie.id) ? "Added" : "Buy"} {/* Toggle text based on cart status */}
                 </div>
               </div>
             </div>

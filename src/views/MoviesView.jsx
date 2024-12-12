@@ -25,7 +25,7 @@ function MoviesView() {
                 <ul className={style9.navigation}>
                     <li><a><Link to={`/`}>HOME</Link></a></li>
                     <li><a href="#">ABOUT</a></li>
-                    <li><a href="#">HELP</a></li>
+                    <li><a><Link to={`/settings`}>SETTINGS</Link></a></li>
                     <li>
                         <div className={style9.search}>
                             <div className={style9.searchbox}>

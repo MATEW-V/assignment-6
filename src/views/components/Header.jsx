@@ -11,7 +11,7 @@ function Header() {
                 <ul className={style3.navigation}>
                     <li><a><Link to={`/`}>HOME</Link></a></li>
                     <li><a href="#">ABOUT</a></li>
-                    <li><a href="#">HELP</a></li>
+                    <li><a href="#">SETTINGS</a></li>
                     <li>
                         <div className={style3.search}>
                             <div className={style3.searchbox}>

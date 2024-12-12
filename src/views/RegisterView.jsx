@@ -47,7 +47,7 @@ function RegisterView() {
   function signup(event) {
     event.preventDefault();
 
-    // Check if passwords match
+    
     if (password !== verifpass) {
       alert("Passwords do not match!");
       return;
@@ -64,7 +64,7 @@ function RegisterView() {
     setLast(lname);
     setContextEmail(email);
     setContextPassword(password);
-    setGenres(selectedGenres);  // Save selected genres to context
+    setGenres(selectedGenres);  
 
     navigate('/movies/genre');
   }
@@ -80,7 +80,7 @@ function RegisterView() {
                 type="checkbox"
                 id={genre.id}
                 value={genre.id}
-                checked={selectedGenres.includes(genre.id)}  // Check if this genre is selected
+                checked={selectedGenres.includes(genre.id)}  
                 onChange={handleGenreChange}
               />
               <label htmlFor={genre.id}>{genre.name}</label><br />

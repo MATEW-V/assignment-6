@@ -10,7 +10,7 @@ function RegisterView() {
   const [lname, setLname] = useState('');
   const [password, setPassword] = useState('');
   const [verifpass, setVerifpass] = useState('');
-  const [selectedGenres, setSelectedGenres] = useState([]);  // Local state for selected genres
+  const [selectedGenres, setSelectedGenres] = useState(new Map()); // Use a Map to store genre selections
   const navigate = useNavigate();
 
   const availableGenres = [
@@ -31,41 +31,39 @@ function RegisterView() {
     { id: "878", name: "Sci-Fi" }
   ];
 
-  // Handle genre checkbox changes
   const handleGenreChange = (event) => {
     const genreId = event.target.value;
+    const genreName = event.target.dataset.name;
+
     setSelectedGenres(prevSelectedGenres => {
-      if (prevSelectedGenres.includes(genreId)) {
-        return prevSelectedGenres.filter(id => id !== genreId);  // Remove if already selected
+      const newGenres = new Map(prevSelectedGenres); 
+      if (newGenres.has(genreId)) {
+        newGenres.delete(genreId); 
       } else {
-        return [...prevSelectedGenres, genreId];  // Add if not selected
+        newGenres.set(genreId, genreName); 
       }
+      return newGenres;
     });
   };
 
-  // Handle the signup process
   function signup(event) {
     event.preventDefault();
 
-    
     if (password !== verifpass) {
       alert("Passwords do not match!");
       return;
     }
 
-    // Check if at least 10 genres are selected
-    if (selectedGenres.length < 10) {
+    if (selectedGenres.size < 10) {
       alert("Please select at least 10 genres.");
       return;
     }
 
-    // Save user data and selected genres to context
     setFirst(fname);
     setLast(lname);
     setContextEmail(email);
     setContextPassword(password);
     setGenres(selectedGenres);  
-
     navigate('/movies/genre');
   }
 
@@ -80,7 +78,8 @@ function RegisterView() {
                 type="checkbox"
                 id={genre.id}
                 value={genre.id}
-                checked={selectedGenres.includes(genre.id)}  
+                data-name={genre.name}  
+                checked={selectedGenres.has(genre.id)}  
                 onChange={handleGenreChange}
               />
               <label htmlFor={genre.id}>{genre.name}</label><br />

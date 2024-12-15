@@ -1,7 +1,7 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useStoreContext } from "../context";  // Import context hook
+import { useStoreContext } from "../context";
 import Footer from "./components/Footer.jsx";
 import style6 from "./GenreLogin.module.css";
 import GenreView from "./components/GenreView.jsx";
@@ -10,19 +10,16 @@ function GenreLogin() {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const [selectedGenreId, setSelectedGenreId] = useState(28);
-  const { cart, fname, addToCart, genres } = useStoreContext();  // Destructure addToCart from context
+  const { cart, fname, addToCart, genres } = useStoreContext();
 
-  // Function to handle adding a movie to the cart
   const cartAdd = (movie) => {
-    // Check if the movie is already in the cart using Immutable Map
     if (cart.has(movie.id)) {
       alert("This movie is already in your cart.");
     } else {
-      addToCart(movie);  // Add movie object to the cart
+      addToCart(movie);
     }
   };
 
-  // Fetch movies based on selected genre
   useEffect(() => {
     const fetchMovies = async () => {
       const url = selectedGenreId
@@ -36,16 +33,13 @@ function GenreLogin() {
     fetchMovies();
   }, [selectedGenreId]);
 
-  // Fetch movies for a specific page
-  async function getMoviesByPage(page) {
+  const getMoviesByPage = async (page) => {
     const response = await axios.get(
       `https://api.themoviedb.org/3/discover/movie?api_key=be3c7266366ad88b56a8397a0a3e668d&with_genres=${selectedGenreId}&page=${page}`
     );
     setMovies(response.data.results);
-  }
+  };
 
-  // Define movie genres
-  
 
   const handleGenreClick = (genreId) => {
     setSelectedGenreId(genreId);
@@ -55,10 +49,10 @@ function GenreLogin() {
     <div className={style6.appcontainer}>
       <div className={style6.loginfeat}>
         <div className={style6.welcome}>
-          Welcome {fname}! We hope you find what you are looking for. {genres}
+          Welcome {fname}! We hope you find what you are looking for.
         </div>
         <div className={style6.genrelist}>
-          <GenreView genresList={genres} onGenreClick={handleGenreClick} />
+          <GenreView genresList={Array.from(genres)} onGenreClick={handleGenreClick} />
           <div className={style6.spacer}></div>
           <div className={style6.pageturner}>
             <p>
@@ -99,12 +93,11 @@ function GenreLogin() {
 
               <div className={style6['button-container']}>
                 <Link to={`/movies/${movie.id}`} className={style6.dbutton}>Details</Link>
-                {/* Check if the movie is already in the cart */}
                 <div
                   onClick={() => cartAdd(movie)}
                   className={style6.buybut}
                 >
-                  {cart.has(movie.id) ? "Added" : "Buy"} {/* Toggle text based on cart status */}
+                  {cart.has(movie.id) ? "Added" : "Buy"}
                 </div>
               </div>
             </div>

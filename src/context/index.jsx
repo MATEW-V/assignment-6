@@ -9,27 +9,25 @@ export const StoreProvider = ({ children }) => {
   const [lname, setLast] = useState("");
   const [password, setPassword] = useState('');
   const [cart, setCart] = useState(Map());
-  const [genres, setGenres] = useState([]);  // Initial empty genres array
+  const [genres, setGenres] = useState(new Map());  
 
-  // Function to add a genre
   const addGenre = (genre) => {
-    setGenres((prevGenres) => [...prevGenres, genre]);  // Add the genre to the list
+    setGenres((prevGenres) => prevGenres.set(genre.id, genre.name));  
   };
 
-  // Function to remove a genre (optional)
   const removeGenre = (genreId) => {
-    setGenres((prevGenres) => prevGenres.filter(genre => genre.id !== genreId));
+    setGenres((prevGenres) => prevGenres.delete(genreId)); 
   };
 
   const addToCart = (movie) => {
-    setCart(prevCart => prevCart.set(movie.id, movie));  // Store the full movie object by its ID
+    setCart(prevCart => prevCart.set(movie.id, movie)); 
   };
 
   return (
     <StoreContext.Provider value={{
       email, setEmail, cart, setCart,
       fname, setFirst, lname, setLast, password, setPassword,
-      addToCart, genres, setGenres, addGenre, removeGenre // Provide genre functions
+      addToCart, genres, setGenres, addGenre, removeGenre 
     }}>
       {children}
     </StoreContext.Provider>

@@ -25,14 +25,14 @@ function Header() {
                     </li>
                     <li>
                         <div className={style3.buttons}>
-                            <div className={style3.register}>
+                            <div className={style3.register}> {/*changes within moviesview*/}
                                 <Link to={`/register`} className={style3.button}>SIGN UP</Link>
                             </div>
                         </div>
                     </li>
                     <li>
                         <div className={style3.buttons}>
-                            <div className={style3.login}>
+                            <div className={style3.login}>{/*changes within moviesview*/}
                                 <Link to={`/login`} className={style3.button}>LOG IN</Link>
                             </div>
                         </div>
